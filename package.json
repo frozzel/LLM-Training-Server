@@ -5,23 +5,31 @@
   "main": "server.js",
   "scripts": {
     "test": "test",
-    "start": "node server.js"
+    "start": "node server.js",
+    "dev": "nodemon server.js"
   },
   "repository": {
     "type": "git",
     "url": "frozzel"
   },
   "keywords": [
-    "AI",
-    "Chatgpt",
-    "training",
-    "server"
+    "ai",
+    "chatgpt",
+    "server",
+    "twitter",
+    "api",
+    "LinkedIn",
+    "cron",
+    "Facebook",
+    "Instagram"
   ],
   "author": "Dennis Hickox",
   "license": "MIT",
   "dependencies": {
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
-    "express": "^4.21.2"
+    "express": "^4.21.2",
+    "mongoose": "^8.9.2",
+    "nodemon": "^3.1.9"
   }
 }
