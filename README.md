@@ -1,5 +1,5 @@
 <div>
-<a href=""><img src="https://github.com/frozzel/frozzel/blob/63a9fc8f1afe7447e8074be5e67a79bfa6c3c591/Black%20Playful%20Animated%20Welcome%20Channel%20Youtube%20Intro%20Video.gif" align="center" height="" width="100%" ></a></div>
+<a href=""><img src="https://github.com/frozzel/LLM-Training-Server/blob/28aa285985a8fde97537d617d0ace899047476a0/chatgptbanner.webp" align="center" height="" width="100%" ></a></div>
 
 # Node.js Server for Testing and Training LLMs with OpenAI's ChatGPT API
 
@@ -43,10 +43,10 @@ Follow these instructions to get your server up and running.
 
 
    ```env
-MONGODB_URI=mongodb://127.0.0.1:27017/test
-OPENAI_API_KEY=YOurKey
-ASSISTANT_ID=GET_API_ROUTE
-THREAD_ID=GET_API_ROUTE
+    MONGODB_URI=mongodb://127.0.0.1:27017/test
+    OPENAI_API_KEY=YOurKey
+    ASSISTANT_ID=GET_API_ROUTE
+    THREAD_ID=GET_API_ROUTE
    ```
 
 4. **Start the server nodemon**
