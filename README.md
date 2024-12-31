@@ -5,14 +5,14 @@
 
 Welcome to the Node.js server repository for testing and training Large Language Models (LLMs) utilizing OpenAI's ChatGPT API. This server acts as a flexible platform to interact with and extend language model functionalities through various testing and training protocols.
 
-## Features
+## ✨Features✨
 
 - **Seamless Integration**: Easily interact with OpenAI's ChatGPT API.
 - **Extensibility**: Designed to add new endpoints and features with minimal effort.
 - **Logging and Monitoring**: Includes basic logging to monitor API requests and responses.
 - **Configurable**: Customizable settings for API keys and server configurations.
 
-## Getting Started
+## 🚀Getting Started🚀
 
 Follow these instructions to get your server up and running.
 
@@ -39,7 +39,8 @@ Follow these instructions to get your server up and running.
 
 3. **Configure environment**
 
-   Create a `.env` file in the root directory and add your API keys and other configurations. Here's a template for the `.env` file:
+> [!IMPORTANT]
+>   Create a `.env` file in the root directory and add your API keys and other configurations. Here's a template for the `.env` file:
 
 
    ```env
@@ -55,7 +56,8 @@ Follow these instructions to get your server up and running.
    npm run dev
    ```
 
-   The server will be running at `http://localhost:8080`.
+> [!NOTE]
+>   The server will be running at `http://localhost:8080`.
 
 ## Usage
 
