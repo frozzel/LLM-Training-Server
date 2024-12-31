@@ -41,7 +41,8 @@ Follow these instructions to get your server up and running.
 
 
 
-> [!IMPORTANT] Create a `.env` file in the root directory and add your API keys and other configurations. Here's a template for the `.env` file:
+> [!IMPORTANT] 
+> Create a `.env` file in the root directory and add your API keys and other configurations. Here's a template for the `.env` file:
 
 
 
@@ -61,7 +62,8 @@ Follow these instructions to get your server up and running.
    npm run dev
    ```
 
-> [!NOTE] The server will be running at `http://localhost:8080`.
+> [!NOTE] 
+> The server will be running at `http://localhost:8080`.
 
 ## Usage
 
