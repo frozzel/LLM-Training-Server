@@ -98,11 +98,11 @@ Follow these instructions to get your server up and running.
 
 ### Customization
 
-🏗️ Feel free to add more endpoints or modify the current ones. The server's architecture supports easy integration with additional AI models or services.
+🛠️ Feel free to add more endpoints or modify the current ones. The server's architecture supports easy integration with additional AI models or services.
 
 ## Contributing
 
-  Created by: [@frozzel](https://github.com/frozzel)
+  Created by: 👽[@frozzel](https://github.com/frozzel)
   
   Please contact me with questions at: [@frozzel](mailto:frozzel@me.com)
 
@@ -111,4 +111,4 @@ Follow these instructions to get your server up and running.
   [![Github license](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
 
----
+💀💀💀💀💀💀💀💀💀💀💀💀💀💀💀💀💀💀💀💀💀💀💀💀💀💀💀💀💀💀💀💀💀💀💀💀💀💀💀💀💀💀💀💀💀💀💀💀💀💀💀💀💀
