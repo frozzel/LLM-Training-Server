@@ -14,9 +14,12 @@ app.use(cors())// enable cors
 
 /////////////////////////// import routes ///////////////////////////
 const trainingRoutes = require('./routes/training.js');
+const socketRoutes = require('./routes/socket.js');
+
 
 /////////////////////////// use routes ///////////////////////////
 app.use('/api/training', trainingRoutes);
+app.use('/api/socket', socketRoutes);
 
 
 /////////////////////////// start server ///////////////////////////
