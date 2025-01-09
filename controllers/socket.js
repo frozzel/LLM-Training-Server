@@ -29,10 +29,13 @@ const message = {
     type: "message",
     content: "Hello, world!",
   };
-  ws.on("open", function open() {
-    ws.send(JSON.stringify(message));
+  ws.on("message", function incoming(message) {
+    // ws.send(JSON.stringify(message));
+   const serverEvent = JSON.parse(message)
+
     console.log("Sent message to server.");
-    console.log(message);
+    console.log("Message ", message);
+    console.log("Server Event ", serverEvent);
   });
   
 // // Server-sent events will come in as messages...
