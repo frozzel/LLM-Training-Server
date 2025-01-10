@@ -39,19 +39,19 @@ const message = {
   });
   
 // // Server-sent events will come in as messages...
-// ws.on("message", function incoming(message) {
-//     // Message data payloads will need to be parsed from JSON:
-//     const serverEvent = JSON.parse(message.data)
-//     console.log(serverEvent);
-//   });
+ws.on("message", function incoming(message) {
+    // Message data payloads will need to be parsed from JSON:
+    const serverEvent = JSON.parse(message.data)
+    console.log(serverEvent);
+  });
   
 //   // To send events, create a JSON-serializeable data structure that
 //   // matches a client-side event (see API reference)
-//   const event = {
-//     type: "response.create",
-//     response: {
-//       modalities: ["audio", "text"],
-//       instructions: "Give me a haiku about code.",
-//     }
-//   };
-//   ws.send(JSON.stringify(event));
+  const event = {
+    type: "response.create",
+    response: {
+      modalities: ["audio", "text"],
+      instructions: "Give me a haiku about code.",
+    }
+  };
+  ws.send(JSON.stringify(event));
