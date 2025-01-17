@@ -25,33 +25,39 @@ ws.on("open", function open() {
   console.log("Connected to server.");
 });
 
-const message = {
-    type: "message",
-    content: "Hello, world!",
-  };
-  ws.on("message", function incoming(message) {
-    // ws.send(JSON.stringify(message));
-   const serverEvent = JSON.parse(message)
+ws.on("message", function incoming(message) {
+  console.log(JSON.parse(message));
+});
 
-    console.log("Sent message to server.");
-    console.log("Message ", message);
-    console.log("Server Event ", serverEvent);
-  });
+// const message = {
+//     type: "message",
+//     content: "Hello, world!",
+//   };
+//   ws.on("message", function incoming(message) {
+//     // ws.send(JSON.stringify(message));
+//    const serverEvent = JSON.parse(message)
+//     ws.send(JSON.stringify(message));
+//     console.log("Sent message to server.");
+//     console.log("Message ", message);
+//     console.log("Server Event ", serverEvent);
+//   });
   
 // // Server-sent events will come in as messages...
 ws.on("message", function incoming(message) {
     // Message data payloads will need to be parsed from JSON:
-    const serverEvent = JSON.parse(message.data)
-    console.log(serverEvent);
+    const serverEvent = JSON.parse(message)
+    console.log("Second", serverEvent);
+
   });
   
 //   // To send events, create a JSON-serializeable data structure that
-//   // matches a client-side event (see API reference)
-  const event = {
-    type: "response.create",
-    response: {
-      modalities: ["audio", "text"],
-      instructions: "Give me a haiku about code.",
-    }
-  };
-  ws.send(JSON.stringify(event));
+  // matches a client-side event (see API reference)
+  // const event = {
+  //   type: "response.create",
+  //   response: {
+  //     modalities: ["audio", "text"],
+  //     instructions: "Give me a haiku about code.",
+  //   }
+  // };
+  //   ws.send(JSON.stringify(event));
+  // });
