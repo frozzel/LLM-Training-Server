@@ -16,12 +16,15 @@ app.use(cors())// enable cors
 const trainingRoutes = require('./routes/training.js');
 const socketRoutes = require('./routes/socket.js');
 const testRoutes = require('./routes/test.js');
+const cozythrowieRoutes = require('./routes/cozythrowie.js');
 
 
 /////////////////////////// use routes ///////////////////////////
 app.use('/api/training', trainingRoutes);
 app.use('/api/socket', socketRoutes);
 app.use('/api/test', testRoutes);
+app.use('/api/cozythrowie', cozythrowieRoutes);
+
 
 
 /////////////////////////// start server ///////////////////////////
