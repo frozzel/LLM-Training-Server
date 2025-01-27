@@ -1,5 +1,5 @@
 //////////// Cozy Throwie Controller ///////////////
-
+const Blog = require('../models/blog');
 
 ///////////// Importing Dependencies ///////////////
 const { response } = require('express');
@@ -151,25 +151,45 @@ const blogSchema = z.object({
         productDescription: z.array(z.string()),
       })
     ),
+    tags: z.array(z.string()),
   });
 
 // ////////////////////////////////////////////////////////////////////////////////////////
-// /////////////////////////////// Structured Output Testing ///////////////////////////////
-//////////////////////////////////// Use Schema in Ai Call ////////////////////////////////
+// /////////////////////////////// Structured Output Testing /////////////////////////////
+//////////////////////////////////// Use Schema in Ai Call ///////////////////////////////
 //////////////////////////////////////////////////////////////////////////////////////////
 
 
 createBlog = async (req, res) => {
+    console.log('🚀 Creating Blog 🚀');
     const completion = await openai.beta.chat.completions.parse({
-        model: "gpt-4o-latest",
+        model: "gpt-4o",
         messages: [
-          {role: "system", content: "You are a content creator for Cozy Throwie, a blog that focuses on cozy living, home decor, and lifestyle. You are responsible for creating engaging content that resonates with your audience. Your goal is to create content that inspires and informs your readers. You are passionate about creating a warm and inviting space for your readers to relax and unwind. You are dedicated to providing valuable information and resources that help your readers live a cozy and comfortable life. You blogs will include links to Amazon products, and you will earn a commission on any sales generated through your blog. You are excited to share your love of cozy living with your readers and help them create a warm and inviting space in their own homes. Each Blog Will start with a Title, a summary description, feature photo, followed by Sections which include a paragraph of text, a photo, and a links to an Amazon products. All photos should be 16:9 aspect ratio and high quality. You will also create social media post for Facebook, Instagram, X (Twitter) and Pinterest. Please include any applicable tags keep inline with each platforms content requirements.  Return your results in this JSON format: {titleMain: 'Title', descriptionSummary: 'Description', featuredPhotoDescription: 'Photo Description', facebook: {text: 'Text', photoDescription: 'Photo Description'}, instagram: {text: 'Text', photoDescription: 'Photo Description'}, twitter: {text: 'Text', photoDescription: 'Photo Description'}, pinterest: {text: 'Text', photoDescription: 'Photo Description'}, sections: [{title: 'Title', description: 'Description', photoDescription: 'Photo Description', productDescription: ['product Description', 'productDescription']}]}"},
-          {role: "user", content: "I would like to create a blog post about how to make your home cozy for the spring."}
+          {role: "system", content: "You are a content creator for Cozy Throwie, a blog that focuses on cozy living, home decor, and lifestyle. You are responsible for creating engaging content that resonates with your audience. Your goal is to create content that inspires and informs your readers. You are passionate about creating a warm and inviting space for your readers to relax and unwind. You are dedicated to providing valuable information and resources that help your readers live a cozy and comfortable life. You blogs will include links to Amazon products, and you will earn a commission on any sales generated through your blog. You are excited to share your love of cozy living with your readers and help them create a warm and inviting space in their own homes. Each Blog Will start with a Title, a summary description, feature photo, followed by Sections which include a paragraph of text, a photo, and a links to an Amazon products. All photos should be 16:9 aspect ratio and high quality. You will also create social media post for Facebook, Instagram, X (Twitter) and Pinterest. Please include any applicable tags keep inline with each platforms content requirements. Include Tags in which users can search for the blog.  Return your results in this JSON format: {titleMain: 'Title', descriptionSummary: 'Description', featuredPhotoDescription: 'Photo Description', facebook: {text: 'Text', photoDescription: 'Photo Description'}, instagram: {text: 'Text', photoDescription: 'Photo Description'}, twitter: {text: 'Text', photoDescription: 'Photo Description'}, pinterest: {text: 'Text', photoDescription: 'Photo Description'}, sections: [{title: 'Title', description: 'Description', photoDescription: 'Photo Description', productDescription: ['product Description', 'productDescription']}], tags: ['tag1', 'tag2']}"},
+          {role: "user", content: "I would like to create a blog post about Top Interior Design Trends for 2025"}
         ],
         response_format: zodResponseFormat(blogSchema, "Blog"),
     }); 
     const blog = completion.choices[0].message.parsed;
-    console.log(blog);
+
+    const newBlog = new Blog({
+        titleMain: blog.titleMain,
+        descriptionSummary: blog.descriptionSummary,
+        featuredPhotoDescription: blog.featuredPhotoDescription,
+        facebook: blog.facebook,
+        instagram: blog.instagram,
+        twitter: blog.twitter,
+        pinterest: blog.pinterest,
+        sections: [...blog.sections],
+        tags: blog.tags,
+    });
+
+    await newBlog.save();
+
+
+
+    console.log('✨ Blog Created ✨');
+
 }
 
 // createBlog()
