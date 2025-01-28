@@ -9,9 +9,7 @@ const { testApi, getCozyBlogs, createAssistant, createMessage, getAiResponse } =
 ///////////////// Routes ////////////////////////////////
 router.get('/test', testApi);
 router.get('/blog', getCozyBlogs);
-router.get('/createAssistant', createAssistant);
-router.get('/createMessage', createMessage);
-router.get('/getAiResponse', getAiResponse);
+
 
 
 
