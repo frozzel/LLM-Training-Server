@@ -112,14 +112,20 @@ const blogSchema = new mongoose.Schema({
                 type: String,
                 required: false
             },
-            productDescription: {
-                type:  Array,
-                required: false
-            },
-            productUrl: {
-                type: Array,
-                required: false
-        },
+            productDescription: [{
+                    description: {
+                        type: String,
+                        required: false
+                    },
+                    productKeywords: {
+                        type: Array,
+                        required: false
+                    },
+                    productUrl: {
+                        type: String,
+                        required: false
+                    },
+            }],
         } ],
     tags: {
         type: Array,
