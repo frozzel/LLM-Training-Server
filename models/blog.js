@@ -1,49 +1,11 @@
 const mongoose = require('mongoose');
 
-/////// Create a schema for the blog model ///////
-
-const facebookSchema = new mongoose.Schema({
+// Define schemas for social media content
+const socialMediaSchema = new mongoose.Schema({
     text: {
         type: String,
         required: false
-    },
-    photoDescription: {
-        type: String,
-        required: false
-    },
-    photoUrl: {
-        type: String,
-        required: false
-    },
-});
-const instagramSchema = new mongoose.Schema({
-    text: {
-        type: String,
-        required: false
-    },
-    photoDescription: {
-        type: String,
-        required: false
-    },
-    photoUrl: {
-        type: String,
-        required: false
-    },
-});
-
-const twitterSchema = new mongoose.Schema({
-    text: {
-        type: String,
-        required: false
-    },
-    photoDescription: {
-        type: String,
-        required: false
-    },
-    photoUrl: {
-        type: String,
-        required: false
-    },
+    }
 });
 
 const pinterestSchema = new mongoose.Schema({
@@ -59,8 +21,13 @@ const pinterestSchema = new mongoose.Schema({
         type: String,
         required: false
     },
+    titleOverlay: { // to include the title within the image
+        type: String,
+        required: false
+    }
 });
 
+// Define the main blog schema
 const blogSchema = new mongoose.Schema({
     titleMain: {
         type: String,
@@ -78,16 +45,16 @@ const blogSchema = new mongoose.Schema({
         type: String,
         required: false
     },
-    faceboook: {
-        type: facebookSchema,
+    facebook: {
+        type: socialMediaSchema,
         required: false
     },
     instagram: {
-        type: instagramSchema,
+        type: socialMediaSchema,
         required: false
     },
     twitter: {
-        type: twitterSchema,
+        type: socialMediaSchema,
         required: false
     },
     pinterest: {
@@ -104,33 +71,26 @@ const blogSchema = new mongoose.Schema({
                 type: String,
                 required: true
             },
-            photoDescription: {
-                type: String,
-                required: false
-            },
-            photoUrl: {
-                type: String,
-                required: false
-            },
             productDescription: [{
-                    description: {
-                        type: String,
-                        required: false
-                    },
-                    productKeywords: {
-                        type: Array,
-                        required: false
-                    },
-                    productUrl: {
-                        type: String,
-                        required: false
-                    },
+                description: {
+                    type: String,
+                    required: false
+                },
+                productKeywords: {
+                    type: Array,
+                    required: false
+                },
+                productUrl: {
+                    type: String,
+                    required: false
+                },
             }],
-        } ],
+        }
+    ],
     tags: {
         type: Array,
         required: false
-    },
+    }
 },
     { timestamps: true }
 );
