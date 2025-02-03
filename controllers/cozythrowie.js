@@ -24,14 +24,26 @@ exports.testApi = (req, res) => {
 //////////////// Get Cozy Blogs function ///////////////////////////
 
 exports.getCozyBlogs = async (req, res) => {
-  console.log('Getting Cozy Blogs');
+  // console.log('Getting Cozy Blogs');
   try {
       const blogs = await Blog.find().sort({ createdAt: -1 }).limit(10); // Fetch the last 10 posts
-      console.log('Blogs:', ...blogs);
+      // console.log('Blogs:', ...blogs);
       res.json({ message: blogs });
   } catch (error) {
       console.error('Error fetching blogs:', error);
       res.status(500).json({ error: 'Failed to fetch blogs' });
+  }
+};
+
+exports.getSingleBlog = async (req, res) => {
+  console.log('Getting Single Blog');
+  try {
+      const blog = await Blog.findById(req.params._id);
+      console.log('Blog:', blog);
+      res.json({ message: blog });
+  } catch (error) {
+      console.error('Error fetching blog:', error);
+      res.json({ error: 'Failed to fetch blog' });
   }
 };
 

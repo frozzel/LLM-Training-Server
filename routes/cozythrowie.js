@@ -3,13 +3,13 @@ const express = require('express');
 const router = express.Router();
 
 ///////////////// Import Controllers ////////////////////
-const { testApi, getCozyBlogs, createAssistant, createMessage, getAiResponse } = require('../controllers/cozythrowie.js');
+const { testApi, getCozyBlogs, getSingleBlog } = require('../controllers/cozythrowie.js');
 
 
 ///////////////// Routes ////////////////////////////////
 router.get('/test', testApi);
 router.get('/blog', getCozyBlogs);
-
+router.get('/blog/:_id', getSingleBlog);
 
 
 
