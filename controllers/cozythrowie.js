@@ -36,10 +36,10 @@ exports.getCozyBlogs = async (req, res) => {
 };
 
 exports.getSingleBlog = async (req, res) => {
-  console.log('Getting Single Blog');
+  // console.log('Getting Single Blog');
   try {
       const blog = await Blog.findById(req.params._id);
-      console.log('Blog:', blog);
+      // console.log('Blog:', blog);
       res.json({ message: blog });
   } catch (error) {
       console.error('Error fetching blog:', error);
